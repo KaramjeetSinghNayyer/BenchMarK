@@ -1,0 +1,6 @@
+BenchMarker compiler assets
+Upstream: https://github.com/binji/wasm-clang
+Commit: 648c4a89997a351eef75cdaec3ef5b89d4937dec
+Copyright 2020 WebAssembly Community Group participants
+See LICENSE and LICENSE.llvm. The sysroot preserves its header notices.
+shared.js adapted by adding an ES module export. Binaries are unchanged, gzip-compressed for distribution.

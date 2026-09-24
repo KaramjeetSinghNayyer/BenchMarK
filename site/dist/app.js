@@ -1,0 +1,8 @@
+const $ = (s) => document.querySelector(s);
+const colors = ['#8b70dc','#46a99a','#dda66c','#729cd9','#d47e9e','#a49a79'];
+const names = ['Quick sort','Merge sort','Bubble sort','Insertion sort','Selection sort','Heap sort'];
+$('#algorithm-picker').innerHTML = names.map((name,i)=>`<label class="algo-option ${i<3?'checked':''}"><input type="checkbox" value="${i}" ${i<3?'checked':''}><span class="algo-dot" style="background:${colors[i]}"></span>${name}</label>`).join('');
+$('#summary-body').innerHTML = names.slice(0,3).map((name,i)=>`<tr><td><span class="algo-name"><span class="algo-dot" style="background:${colors[i]}"></span>${name}</span></td><td><span class="complexity">${i<2?'O(n log n)':'O(n²)'}</span></td><td class="quiet">—</td><td class="quiet">Awaiting data</td><td class="quiet">Not run</td><td><button class="edit-link">View code ↗</button></td></tr>`).join('');
+$('#chart').innerHTML = `<svg viewBox="0 0 650 300" role="img" aria-label="Empty performance chart, ready for measurements"><text x="15" y="15" class="axis-label">Execution time (ms)</text>${[55,105,155,205,255].map(y=>`<path d="M55 ${y}H625" stroke="#ecebf2" stroke-dasharray="3 5"/>`).join('')}<path d="M55 35V255H625" stroke="#e9e7ef" fill="none"/><text x="340" y="292" text-anchor="middle" class="axis-label">Input size (n)</text></svg><div class="empty-chart"><strong>Your next discovery starts here.</strong><p>Choose your algorithms and run an experiment.</p></div>`;
+$('#chart-legend').innerHTML=names.slice(0,3).map((name,i)=>`<span class="legend-item"><i class="legend-line" style="background:${colors[i]}"></i>${name}</span>`).join('');
+import('./lab.js');
