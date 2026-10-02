@@ -8,7 +8,11 @@ Students need a reproducible way to compare sorting implementations on identical
 
 ## Run
 
-Use Node.js 22 or newer: `npm run dev`, then open http://127.0.0.1:3001. No dependency installation is necessary. Static files in `dist/` can also be served by any HTTP server. Modules and workers require HTTP rather than opening HTML as a file.
+From this directory, use Node.js 22 or newer: `npm ci`, then `npm run dev` and open http://127.0.0.1:3001. There are no npm dependencies. Use `npm run build` to validate and produce `build/`, then `npm run preview` to serve the release. Modules and workers require HTTP rather than opening HTML as a file. Local servers accept `HOST` and `PORT` environment variables (defaults: `127.0.0.1` and `3001`).
+
+## Publishing
+
+The repository includes a GitHub Pages workflow that tests and builds pull requests and deploys successful builds from `main`. See the [repository README](../README.md#publish-on-github-pages) for the one-time Pages setup. Publish the contents of `build/`, which includes all compiler assets and license notices. `dist/` remains the authored source directory.
 
 ## Features
 
@@ -32,7 +36,7 @@ Worker isolation protects UI responsiveness; it is not a security boundary for h
 
 ## Verification
 
-`npm test` covers sorting edge cases, deterministic generation, input validation, fitting, CSV quoting, real worker execution, error handling, and termination. `dist/` contains authored source; no build step is required.
+`npm test` covers sorting edge cases, deterministic generation, input validation, fitting, CSV quoting, real worker execution, error handling, termination, and static HTTP serving. `npm run build` checks release assets, JavaScript syntax, and compressed archive integrity. `dist/` contains authored source; the build copies it without bundling or rewriting module paths.
 
 ## ANSI C in the browser
 

@@ -1,1 +1,15 @@
-{"name":"benchmarker-sorting-lab","private":true,"type":"module","scripts":{"dev":"node server.mjs","start":"node server.mjs","test":"node --test tests/*.test.mjs"}}
+{
+  "name": "benchmarker-sorting-lab",
+  "version": "1.0.0",
+  "description": "A browser-based sorting lab for reproducible JavaScript and ANSI C benchmarks.",
+  "private": true,
+  "type": "module",
+  "engines": {"node": ">=22"},
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "start": "node scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/serve.mjs --preview",
+    "test": "node --test tests/*.test.mjs"
+  }
+}
